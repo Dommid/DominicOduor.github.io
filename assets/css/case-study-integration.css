@@ -1,0 +1,14 @@
+/* Phase 4: shared related-case-study navigation. Uses each page's existing CSS variables. */
+.related-cases{background:var(--bg);color:var(--text);border-top:1px solid var(--line);padding:64px 24px}
+.related-cases__inner{max-width:1120px;margin:0 auto}
+.related-cases__eyebrow{color:var(--accent);font:700 11px/1.5 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:0 0 9px}
+.related-cases h2{font:750 clamp(25px,3vw,38px)/1.18 system-ui,sans-serif;letter-spacing:-.035em;margin:0 0 10px;color:var(--text)}
+.related-cases__intro{margin:0 0 25px;max-width:690px;color:var(--muted);font:400 15px/1.7 system-ui,sans-serif}
+.related-cases__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.related-cases__card{display:block;padding:19px 17px;background:var(--panel,var(--surface,#10263a));border:1px solid var(--line);border-radius:12px;color:var(--text);font:650 14px/1.5 system-ui,sans-serif;text-decoration:none;transition:border-color .15s,transform .15s}
+.related-cases__card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.related-cases__card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.related-cases__card small{display:block;color:var(--accent);letter-spacing:.08em;font-size:10px;margin-bottom:7px}
+.related-cases__home{display:inline-block;margin-top:24px;color:var(--accent);font:700 13px/1.5 system-ui,sans-serif;text-underline-offset:4px}
+.related-cases__home:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.related-cases__card{transition:none}.related-cases__card:hover{transform:none}}
