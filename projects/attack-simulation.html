@@ -6,7 +6,7 @@
   <title>Attack Simulation | Dominic Oduor — Cybersecurity & IT</title>
   <link rel="stylesheet" href="attack-simulation-detail.css">
   <script>try {const t=localStorage.getItem('portfolio-theme');if(t==='light'||t==='dark') document.documentElement.dataset.theme=t;}catch(e){}</script>
-</head>
+<script>(function(){try{var t=localStorage.getItem('dominic-theme')||localStorage.getItem('dominic-portfolio-theme')||localStorage.getItem('portfolio-theme')||localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script><link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="../assets/css/case-study-integration.css"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><span class="monogram">D</span><span>Dominic Oduor<small>CYBERSECURITY &amp; IT</small></span></a><nav aria-label="Main navigation"><a href="../index.html#projects">All projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a><button class="theme-toggle" type="button" aria-label="Toggle color theme" id="themeButton">☼ <span>Theme</span></button></nav></div></header>
@@ -22,6 +22,25 @@
 <section class="section wrap" id="illustration"><p class="section-label">04 / ATTACK-TO-DEFENSE MAP</p><div class="section-heading"><h2>Convert findings<br><em>into controls.</em></h2><p>Illustrative mapping of exercise themes to defensive priorities; not a report of real-world attacker activity.</p></div><div class="mapping" role="table" aria-label="Illustrative lab themes and defensive responses"><div class="mapping-head" role="row"><span role="columnheader">Observed lab theme</span><span role="columnheader">Potential risk</span><span role="columnheader">Defensive priority</span></div><div class="mapping-row" role="row"><span role="cell">Vulnerable services</span><span role="cell">Unauthorized access</span><span role="cell">Patch, inventory, and verify</span></div><div class="mapping-row" role="row"><span role="cell">Credential exposure</span><span role="cell">Account compromise</span><span role="cell">Strong authentication &amp; least privilege</span></div><div class="mapping-row" role="row"><span role="cell">LAN interception</span><span role="cell">Session/data exposure</span><span role="cell">Encryption and access-layer protections</span></div><div class="mapping-row" role="row"><span role="cell">Uncontrolled DMZ access</span><span role="cell">Lateral movement</span><span role="cell">Segmentation and firewall review</span></div></div><p class="footnote">This table is a generalized learning artifact. It does not reveal actual host identities, vulnerable IP addresses, captured credentials, or reproduction steps.</p></section>
 <section class="section alternate" id="outcomes"><div class="wrap split"><div><p class="section-label">05 / TAKEAWAYS</p><h2>What the exercises<br><em>demonstrated.</em></h2></div><div class="takeaways"><p><strong>Security validation:</strong> Exposure should be evaluated through observed behavior and confirmed against the exercise scope.</p><p><strong>Visibility:</strong> Network and application telemetry can help distinguish normal behavior from potentially harmful activity, but context and log quality matter.</p><p><strong>Remediation discipline:</strong> The May lab documented pre/post patch versions and an unsuccessful exploit attempt after patching in that specific training scenario. This does not establish a broader production security outcome.</p><p><strong>Responsible handling:</strong> Offensive techniques are described only at a high level; sensitive captured information and exploitable details remain private.</p></div></div></section>
 <section class="section wrap final"><p class="section-label">06 / SOURCE &amp; NEXT STEP</p><h2>Evidence-led.<br><em>Security-first.</em></h2><p>Source basis: <i>Exploiting Vulnerable Hosts</i> (Ethical Hacking Lab 03, February 2025); <i>Performing Packet Capture and Session Hijacking</i> (Ethical Hacking Lab 06, March 2025); and <i>Defending the Network from a Simulated Attack</i> (Network Security Lab 02, May 2025). The underlying reports and screenshots are retained privately.</p><div class="actions"><a class="primary" href="../index.html#projects">Explore other cybersecurity projects ↗</a><a class="secondary" href="../index.html#contact">Get in touch →</a></div></section>
-</main><footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Dominic Oduor · Cybersecurity &amp; IT</span><a href="../index.html">Back to main portfolio ↑</a></div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();const root=document.documentElement;document.getElementById('themeButton').addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('portfolio-theme',root.dataset.theme);}catch(e){}});</script>
+<section class="related-cases" aria-labelledby="related-cases-heading"><div class="related-cases__inner"><p class="related-cases__eyebrow">CONTINUE EXPLORING</p><h2 id="related-cases-heading">More cybersecurity case studies</h2><p class="related-cases__intro">Explore the other evidence-led assessments and controlled lab projects in this portfolio.</p><div class="related-cases__grid"><a class="related-cases__card" href="hivo.html"><small>CASE STUDY 01</small>Hivo · Web Application Security ↗</a><a class="related-cases__card" href="incident-response.html"><small>CASE STUDY 02</small>Incident Response ↗</a><a class="related-cases__card" href="network-defense.html"><small>CASE STUDY 03</small>Network Defense ↗</a><a class="related-cases__card" href="endpoint-security.html"><small>CASE STUDY 05</small>Endpoint Security ↗</a></div><a class="related-cases__home" href="../index.html#projects">← View all portfolio projects</a></div></section></main><footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Dominic Oduor · Cybersecurity &amp; IT</span><a href="../index.html">Back to main portfolio ↑</a></div></footer>
+<script>(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById('themeToggle')||document.getElementById('themeButton');
+  var year=document.getElementById('year');
+  if(year)year.textContent=new Date().getFullYear();
+  function setTheme(value){
+    var t=value==='light'?'light':'dark';root.dataset.theme=t;
+    if(btn){
+      btn.setAttribute('aria-pressed',String(t==='light'));
+      btn.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' theme');
+      var span=btn.querySelector('span');
+      if(btn.id==='themeToggle' && span && /Light|Dark/.test(span.textContent.trim()))span.textContent=t==='light'?'Light':'Dark';
+    }
+  }
+  setTheme(root.dataset.theme);
+  if(btn)btn.addEventListener('click',function(){
+    var t=root.dataset.theme==='dark'?'light':'dark';setTheme(t);
+    try{localStorage.setItem('dominic-theme',t);}catch(e){}
+  });
+})();</script>
 </body></html>
